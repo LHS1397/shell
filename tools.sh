@@ -26,11 +26,11 @@ intput()
     echo
     if [[ -f "$file".cpp ]];
     	then
-    	echo "File "$file".cpp exist"
+    	echo "File "$file".cpp exsist"
     	comrun
 
     else
-    	echo "File "$file".cpp not exist, enter a valid file name"
+    	echo "File "$file".cpp not exsist, enter a valid file name"
     fi
 
 }
