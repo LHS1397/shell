@@ -1,5 +1,15 @@
 #!/bin/bash
-start()
+start1()
+{
+		if [[ $EUID == 0 ]];
+		then
+		start2
+	else
+		echo "Please run as root!"
+		exit
+fi
+}
+start2()
 {
   clear
   export dat=$(date +%r)
@@ -13,42 +23,72 @@ start()
    echo "| Git Automation  |"
    echo " -----------------"
    echo
-  echo "Enter username: "
-  echo
-  read username
-  git config --global user.name "$username"
-  echo
-  echo "Enter Email address: "
-  read email
-  git config --global user.email "$email"
-  validation
+   validation
 }
 
 validation()
 {
-  echo
 	echo "validating....."
-  echo "Check username: "
   echo
-  git config --global user.name
+  echo "Checking username: "
   echo
-  echo "Check Email: "
-  git config --global user.email
-
+  export user=$(git config --global user.name)
+  echo "$user"
+  echo
+  echo "Checking Email: "
+  echo
+  export mail=$(git config --global user.email)
+  echo "$mail"
+  echo
+  if [[ ! -z $user && ! -z $mail ]]; then
+  echo "The Git is already configured"
+  sleep 2
+  echo
+  run
+fi
 }
 
-decision()
+run()
 {
-    echo
-    echo "Continue(Y) or Exit(N) Please enter your choice : "
-	read choice
-	if [[ $choice == y || $choice == Y ]];
-        	then
-        	start
-        else
-        	echo
-        	echo "Exiting...."
-        	exit
-        fi
+  echo
+  echo "Would you like to reconfigure or Continue to the Git Automation: "
+  echo
+  echo "Enter your choice : "
+  echo
+  options=("reconfigure" "Continue" "exit")
+  select opt in "${options[@]}"
+  do
+  case $opt in
+   "reconfigure")
+   echo
+   echo "Enter username: "
+   echo
+   read username
+   echo
+   echo "Enter Email address: "
+   echo
+   read email
+   echo
+   echo "Setting Username and Email"
+   echo
+   echo "settiing............"
+   git config --global user.name "$username"
+   git config --global user.email "$email"
+   sleep 1
+   if [[ $user == $username && $mail == $email ]]; then
+   echo "Done."
+   fi
+     ;;
+     "Continue")
+     echo "Redirecting....."
+     sleep 1
+     ./systools.sh
+     ;;
+     "exit")
+     echo "exitting...."
+     sleep 2
+     exit
+   esac
+  done
 }
-start
+start1
