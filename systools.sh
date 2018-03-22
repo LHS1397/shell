@@ -1,19 +1,58 @@
 start()
 {
-	read user_name = whoami
-	if [[ $user_name == "root" ]];
+		if [[ $EUID == 0 ]];
 		then
-		echo
-		clear
-	   echo " -----------------"
-	   echo "| System tool and |"
-	   echo "|    utilities    |"
-	   echo " -----------------"
-	   echo
-		echo "Runnning"
+		userdet
 	else
-		echo "Please check the file name!"
+		echo "Please run as root!"
 		exit
+fi
+}
+userdet()
+{
+	clear
+	echo
+	echo "loading............"
+	sleep 3s
+	clear
+	export dat=$(date +%r)
+	echo "started at $dat"
+	 echo
+	 echo " -----------------"
+	 echo "| Git Automation  |"
+	 echo " -----------------"
+	 echo
+	 cd /home
+	 echo "Enter the path of the file with 'GIT' initiated:"
+	 export dir=$(pwd)
+	 export user=$(users)
+	 echo
+	 echo "note:- current directory $dir "
+	 echo
+	read filename
+	cd /home/$user/$filename
+	echo
+	export crnt=$(pwd)
+	echo " current path is: $crnt"
+	validate
+}
+validate()
+{
+	echo
+	echo "validating....."
+	export ved=$(ls -a | grep .git$)
+	sleep 2
+	if [[ -e $ved ]];
+	then
+		echo
+	echo "Valid 'git' directory"
+else
+	echo "Please enter valid path or directory name!"
+	sleep 2
+	clear
+	echo "Reinitating......."
+	sleep 2
+	userdet
 fi
 }
 start
