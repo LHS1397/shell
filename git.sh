@@ -159,3 +159,8 @@
  1854  git clone https://github.com/torvalds/linux.git
  1861  git status
  1865  history | grep git >> git.sh
+ 
+ test <<<<<<<<<<
+ 
+ git remote add origin  https://github.com/LHS139 
+ git push origion user(any specific)
