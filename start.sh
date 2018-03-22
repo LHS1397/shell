@@ -42,8 +42,12 @@ validation()
   echo
   if [[ ! -z $user && ! -z $mail ]]; then
   echo "The Git is already configured"
-  sleep 2
+ echo  
+ echo "Redirecting......."
+  sleep 3 
+  ./systools.sh
   echo
+  else 
   run
 fi
 }
@@ -51,7 +55,7 @@ fi
 run()
 {
   echo
-  echo "Would you like to reconfigure or Continue to the Git Automation: "
+  echo "Would you like to re/configure or Continue to the Git Automation: "
   echo
   echo "Enter your choice : "
   echo
@@ -77,6 +81,7 @@ run()
    sleep 1
    if [[ $user == $username && $mail == $email ]]; then
    echo "Done."
+   ./systools.sh
    fi
      ;;
      "Continue")
