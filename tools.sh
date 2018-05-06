@@ -28,7 +28,7 @@ intput()
     	then
     	echo "File "$file".cpp exsist"
     	comrun
-
+			
     else
     	echo "File "$file".cpp not exsist, enter a valid file name"
     fi
