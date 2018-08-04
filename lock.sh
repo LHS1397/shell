@@ -41,7 +41,7 @@ update()
   echo
   echo "Getting Updates.."
   sleep 2s
-  apt-get update >> log.update.log
+  apt-get update >> update.log
   echo
   echo "upgrading...."
   apt-get -y upgrade >> upgrade.log
