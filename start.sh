@@ -42,12 +42,12 @@ validation()
   echo
   if [[ ! -z $user && ! -z $mail ]]; then
   echo "The Git is already configured"
- echo  
+ echo
  echo "Redirecting......."
-  sleep 3 
+  sleep 3
   ./systools.sh
   echo
-  else 
+  else
   run
 fi
 }
