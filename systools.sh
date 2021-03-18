@@ -2,9 +2,9 @@ start()
 {
 		if [[ $EUID == 0 ]];
 		then
-		userdet
+        echo " please run as normal user "
 	else
-		echo "Please run as root!"
+		userdet
 		exit
 fi
 }
@@ -25,9 +25,10 @@ userdet()
 	 cd /home
 	 echo "Enter the path of the file with 'GIT' initiated:"
 	 export dir=$(pwd)
-	 export user=$(users)
+	 export user=$(whoami)
 	 echo
 	 echo "note:- current directory $dir "
+     echo " Current user $user "
 	 echo
 	read filename
 	cd /home/$user/$filename
