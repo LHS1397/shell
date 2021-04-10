@@ -41,7 +41,7 @@ checksum()
   /bin/cat /home/lovish/shell/cron.log >> /var/log/current_user
   rm -rf user_data.txt.old
   else
-  export change=$(date +%c; comm user_data.txt.old user_data.txt)
+  export change=$(date +%c; comm -3 user_data.txt.old user_data.txt)
   echo "$change" >> /var/log/user_changes
   echo "$check" > /home/lovish/shell/cron.log
   /bin/cat /home/lovish/shell/cron.log > /var/log/current_user
