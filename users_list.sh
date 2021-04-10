@@ -29,19 +29,23 @@ hash_gen()
   touch /home/lovish/shell/cron.log
   touch /var/log/user_changes
   touch /var/log/current_user
+  checksum
 }
 
 checksum()
 {
-  export value=$(cat /home/lovish/shell/cron.log | awk '{print $1}')
-  if [[ -z "$value"  || "$check" -eq "$value" ]]; then
+  declare -A value
+  value=$(cat /home/lovish/shell/cron.log | awk '{print $1}')
+  if [[ -z "$value"  || 64#$check -eq 64#$value ]]; then
   echo "$check" > /home/lovish/shell/cron.log
   /bin/cat /home/lovish/shell/cron.log >> /var/log/current_user
+  rm -rf user_data.txt.old
   else
   export change=$(date +%c; comm user_data.txt.old user_data.txt)
   echo "$change" >> /var/log/user_changes
   echo "$check" > /home/lovish/shell/cron.log
   /bin/cat /home/lovish/shell/cron.log > /var/log/current_user
+  rm -rf user_data.txt.old
   fi
 }
 
