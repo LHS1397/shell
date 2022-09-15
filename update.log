@@ -1,0 +1,37 @@
+Hit:1 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:2 http://dl.google.com/linux/chrome/deb stable InRelease
+Get:3 http://packages.elementary.io/appcenter bionic InRelease [5,909 B]
+Hit:4 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic InRelease
+Hit:5 http://in.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:6 http://in.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:7 http://in.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:8 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:9 http://ppa.launchpad.net/elementary-os/stable/ubuntu bionic InRelease
+Hit:10 http://archive.canonical.com/ubuntu bionic InRelease
+Get:11 http://packages.elementary.io/appcenter bionic/main amd64 DEP-11 Metadata [301 kB]
+Hit:12 http://ppa.launchpad.net/elementary-os/os-patches/ubuntu bionic InRelease
+Hit:13 http://ppa.launchpad.net/philip.scott/elementary-tweaks/ubuntu bionic InRelease
+Ign:14 http://ppa.launchpad.net/versable/elementary-update/ubuntu bionic InRelease
+Hit:15 http://ppa.launchpad.net/yunnxx/elementary/ubuntu bionic InRelease
+Err:16 http://ppa.launchpad.net/versable/elementary-update/ubuntu bionic Release
+  404  Not Found [IP: 91.189.95.85 80]
+Reading package lists...
+Hit:1 http://in.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 https://download.docker.com/linux/ubuntu bionic InRelease
+Hit:3 http://in.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:4 http://ppa.launchpad.net/deadsnakes/ppa/ubuntu bionic InRelease
+Hit:6 http://in.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:7 http://archive.canonical.com/ubuntu bionic InRelease
+Hit:8 http://dl.google.com/linux/chrome/deb stable InRelease
+Hit:9 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:10 http://packages.elementary.io/appcenter bionic InRelease
+Hit:11 http://download.opensuse.org/repositories/filesystems:/snapper/xUbuntu_21.10  InRelease
+Hit:12 http://ppa.launchpad.net/elementary-os/stable/ubuntu bionic InRelease
+Get:5 https://packages.cloud.google.com/apt kubernetes-xenial InRelease [9,383 B]
+Hit:13 http://ppa.launchpad.net/elementary-os/os-patches/ubuntu bionic InRelease
+Hit:14 http://ppa.launchpad.net/philip.scott/elementary-tweaks/ubuntu bionic InRelease
+Ign:15 http://ppa.launchpad.net/versable/elementary-update/ubuntu bionic InRelease
+Hit:16 http://ppa.launchpad.net/yunnxx/elementary/ubuntu bionic InRelease
+Err:17 http://ppa.launchpad.net/versable/elementary-update/ubuntu bionic Release
+  404  Not Found [IP: 91.189.95.85 80]
+Reading package lists...

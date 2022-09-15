@@ -1,0 +1,2 @@
+yum install tcl tcl-devel -y - to fix tcl not available for the make test
+
