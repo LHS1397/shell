@@ -1,0 +1,32 @@
+#updated_data()
+{
+  /bin/echo "Getting User Data - "
+  /bin/sleep 2
+  if [[ -f "user_data.txt" ]]; 
+  then
+  mv user_data.txt user_data.txt.old
+  set_data
+  else
+  set_data
+  fi
+}
+
+#checksum()
+{
+  declare -A value
+  value=$(cat /home/lovish/shell/cron.log | awk '{print $1}')
+  if [[ -z "$value"  || 64#$check -eq 64#$value ]]; then
+  echo "$check" > /home/lovish/shell/cron.log
+  /bin/cat /home/lovish/shell/cron.log >> /var/log/current_user
+  rm -rf user_data.txt.old
+  else
+  export change=$(date +%c; comm -3 user_data.txt.old user_data.txt)
+  echo "$change" >> /var/log/user_changes
+  echo "$check" > /home/lovish/shell/cron.log
+  /bin/cat /home/lovish/shell/cron.log > /var/log/current_user
+  rm -rf user_data.txt.old
+  fi
+}
+
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:; export PATH
+source /home/lovish/.bashrc

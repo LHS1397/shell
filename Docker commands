@@ -1,0 +1,24 @@
+docker version - for checking the version of the docker
+docker info - for more info like checking docker container and setups
+
+# Setting up an Nginx Server -
+Image - Application we want to run
+container is an instance of that image running as a process
+We can run as many container on the image
+
+List container - docker container ls ( ls -a for more details)
+
+Logs - docker container Logs dockername
+process - docker container top dockername ( inside the container )
+remove - docker container rm dockername
+stats - docker container stats (in the real time )
+Inspect - docker container Inspect dockername
+
+#Shell 
+
+docker container run -it ( for the new ones)
+docker container exec -it ( to get shell in the  older container )
+
+
+
+

@@ -1,45 +1,90 @@
-root : /root
-daemon : /usr/sbin
-bin : /bin
-sys : /dev
-sync : /bin
-games : /usr/games
-man : /var/cache/man
-lp : /var/spool/lpd
-mail : /var/mail
-news : /var/spool/news
-uucp : /var/spool/uucp
-proxy : /bin
-www-data : /var/www
-backup : /var/backups
-list : /var/list
-irc : /var/run/ircd
-gnats : /var/lib/gnats
-nobody : /nonexistent
-systemd-network : /run/systemd/netif
-systemd-resolve : /run/systemd/resolve
-syslog : /home/syslog
-messagebus : /nonexistent
-_apt : /nonexistent
-uuidd : /run/uuidd
-avahi-autoipd : /var/lib/avahi-autoipd
-usbmux : /var/lib/usbmux
-dnsmasq : /var/lib/misc
-rtkit : /proc
-lightdm : /var/lib/lightdm
-cups-pk-helper : /home/cups-pk-helper
-speech-dispatcher : /var/run/speech-dispatcher
-kernoops : /
-saned : /var/lib/saned
-nm-openvpn : /var/lib/openvpn/chroot
-avahi : /var/run/avahi-daemon
-colord : /var/lib/colord
-hplip : /var/run/hplip
-geoclue : /var/lib/geoclue
-pulse : /var/run/pulse
-_flatpak : /nonexistent
-lovish : /home/lovish
-sshd : /run/sshd
-postfix : /var/spool/postfix
-guest-yqm5yl : /tmp/guest-yqm5yl
-lxd : /var/snap/lxd/common/lxd
+root:/root
+
+daemon:/usr/sbin
+
+bin:/bin
+
+sys:/dev
+
+sync:/bin
+
+games:/usr/games
+
+man:/var/cache/man
+
+lp:/var/spool/lpd
+
+mail:/var/mail
+
+news:/var/spool/news
+
+uucp:/var/spool/uucp
+
+proxy:/bin
+
+www-data:/var/www
+
+backup:/var/backups
+
+list:/var/list
+
+irc:/var/run/ircd
+
+gnats:/var/lib/gnats
+
+nobody:/nonexistent
+
+systemd-network:/run/systemd/netif
+
+systemd-resolve:/run/systemd/resolve
+
+syslog:/home/syslog
+
+messagebus:/nonexistent
+
+_apt:/nonexistent
+
+uuidd:/run/uuidd
+
+avahi-autoipd:/var/lib/avahi-autoipd
+
+usbmux:/var/lib/usbmux
+
+dnsmasq:/var/lib/misc
+
+rtkit:/proc
+
+lightdm:/var/lib/lightdm
+
+cups-pk-helper:/home/cups-pk-helper
+
+speech-dispatcher:/var/run/speech-dispatcher
+
+kernoops:/
+
+saned:/var/lib/saned
+
+nm-openvpn:/var/lib/openvpn/chroot
+
+avahi:/var/run/avahi-daemon
+
+colord:/var/lib/colord
+
+hplip:/var/run/hplip
+
+geoclue:/var/lib/geoclue
+
+pulse:/var/run/pulse
+
+_flatpak:/nonexistent
+
+lovish:/home/lovish
+
+sshd:/run/sshd
+
+postfix:/var/spool/postfix
+
+guest-yqm5yl:/tmp/guest-yqm5yl
+
+lxd:/var/snap/lxd/common/lxd
+
