@@ -1,0 +1,48 @@
+- Assuming we have pre-code base and already have it initilized using "git init repo-name"
+- Setting up default branch:
+  
+  $ git config --global init.defaultBranch main
+
+- We'll now switch to the main branch:
+
+  $ git branch -m main
+
+- Assuing we added a file and made some changes to a file and now it is in staging area, after this we'll go ahead and commit those changes, here we'll be using -m paramter to add description of what changes we made however we can still use commit without. In that case it will open up your default editor where you can add the message, save it and it will get commit:
+
+   $ git commit -m "first commit"
+
+- same scenario changes, added the file to staging area and commit those changes:
+
+   $ git commit -m "second commit"
+
+- Currently we are on the "Main" Branch, in our flow there is new branch named "Feature branch" adding some feature and commitng them. We'll create a new branch and at the same time will switch to it:
+
+   $ git checkout -b new-feature main
+
+*Note: Currently the head is at the main brach's second commit so not providing the existing-branch name when creating a new branch.
+
+- Now commiting changes made by then featrue-branch:
+
+   $ git commit -m "awesome feature"
+
+- Switching to the Main branch again:
+
+   $ git checkout main
+
+- Now comitting the few more changes made under main branch:
+
+   $ git commit -m "third commit"
+
+- At this point we'll merge both the changes and modifications under main and feature-branch:
+
+   $ git merge
+
+- Here is the final commit as we merge the main and feature-branch changes to one:
+ 
+   $ git commit -m "Fourth commit"
+
+Now out head moved the final fourth commit that you check via:
+
+   $ git reflog (For shorter version)
+   $ git log    (For bit detailed version)
+
