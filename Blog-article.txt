@@ -1,0 +1,11 @@
+I used to work on different aspects cloud where we conenct with the end users and try to fix their issues or build new solutions for them.
+
+Recently I was working on a case where we were automating the patching of linux servers using systesm manager, one of AWS offering. There are few things that is still new and customers try to use them and later comes to us with different questions and issues reagding the same.
+
+So in patch manager there is a feature to check the compliance of the serevr where it scans the serever and install those patches which comes under non-compliant.H
+
+Issue Statement: Here CX usually assumes that the patch mamager automatically scans the tells the compliance level of the server.
+
+So I searched the offical and un-official docs, there In a public doc I found that until and unless you don't run the scan once it won't be able to scsn te serev and determine the compliance level. We educate the customer on the same and go live with them and reproduce the scenario and update them.
+
+There are few more scenarios where they are not sure how the patches are installed what factors can affect the instalation like the serverity of the vulenrability and the compliance level you're option, how long you want to wait for the patches to validate and auto install.

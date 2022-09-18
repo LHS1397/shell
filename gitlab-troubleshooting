@@ -1,0 +1,23 @@
+Currently our end user is experiecnming slowness while accessing our application webpage, we'll follow the below steps to troublesshot further:
+
+- Try to access other webpages or website if the same is observed. For this instance try gitlab.com
+- In case all the webpages exhibit the same behaviour have to check the internet bandwidh if not proceed further.
+
+- Try to access other pages of the same webapp, this will help to understand if only one page is slow or the whole weapp is slow.
+- In case there is any plugin or third pary application installed, try to remove those and access the webpage again.
+- To test the website loading we'll use the develoopers tools and monitor the laoding speed of the webpage and waht componetsn and scriopts are getting loaded and taking the loading time.
+- To cehck the page loading speed we'll use a utility provided by google i.e " Google page speed laod test". Using this we'll able to find what components are slowing down the laoding speed along with how much time and what components are causing it.
+- Based on the outcome we can optimize out application.
+
+At the server level we can perform some other checks like there are adequate resources allocated to the webapp and other components:
+
+- We'll check the menory utilization of the serevr.
+- How much the CPU utilization is there. 
+
+The web-app has dependency on the database so it be reading and writing data to the storage, we can verify if the storage has adequate IOPS and it is not getting throttled for any reason.
+
+There is no network throttling or padket shaping due to resource limitation.
+
+Based on these we can troubleshoot the perforamance.
+
+

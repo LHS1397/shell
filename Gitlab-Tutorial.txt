@@ -1,0 +1,50 @@
+When it comes to development there are various components that build up a service or an application. They are combined togerther to function as one. Same goes with development. There are multiple tems or individual that work on different aspects of the the service.
+
+Some works on the forntend and some at the backend. They have to implement various features and deliver the best solution to the end users or their client which has no issues or raher we call is bugs. Everything works as smooth as like butter with differenet flavouring. As the projects grows it comes bit tedious to mamage everything without everything so it is important for every ingrdient to be perfenct order and quantatiy. 
+
+Now lets get to the part where we'll get to know how you can manage all the awesoem work created by developers and make it into one. For this there are differnt utilities that you can use to achieve the same one such is gitlab verison control services.
+
+What it does and why we need it? Here thre problem gitlab solving is it is helping teams to manage the task in a way that is doesn't affect the work done till by any other team by using the conecpt called branching.
+
+Branching: It is a way where you assign a chain to a team or individual where they create what they are assigned with, you can create multiple branches for different teams and they can manage the task according. There is one main branch can be called stable branch or precedent branch. This is the branch that is bug free and holds the services that you would like to deliver to your CX or end user. The code is stored as repo in the gitlab console or repo manager where you can see and manage your code base.
+
+> You can use the below commands to create branch and manage them:
+
+- Assuming we have pre-code base and here we'll initilize it making it part of the git:
+
+  $ git init repo-name
+
+- Setting up default branch: (here we name it as main)
+  
+  $ git config --global init.defaultBranch main
+
+> Now we have set up with the main branch lets add some code or file to it:
+
+  $ touch helloworld.py
+
+- Now how did the git know that you have created a file and want to manage it with git version control, so we'll go ahead and add the file:
+
+  $ git add helloworld.py
+
+At this point the files is in the staging area, here the files are put forward just to make sure that all the files are upto the mark before it is put to use.
+
+> Further to make the changes permanent you have to commit those chages, here we'll be using -m paramter to add description of what changes we made however we can still use commit without. In that case it will open up your default editor where you can add the message, save it and it will get commit:
+
+  $ git commit -m "First Changes: your fist modification"
+
+- Currently we are on the "Main" Branch so every changes made are on this, now your client has a change of mind and ask you to implement a new feature but you don't want to mess the working bug free code, so here branching helps.
+
+We'll go ahead and create a new branch and swith to it at the same time:
+
+   $ git checkout -b new-feature
+
+Here, you can make all the changes, commit them. After this we made sure that all the chages are fine and working perfectly. Now we'll merge all the changes into the main branch.
+
+   $ git merge
+
+At this point the feature and the main code base is merged and they are intigrated and is considred as one.
+
+
+
+
+

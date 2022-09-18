@@ -17,7 +17,8 @@ updated_data()
 
 set_data()
 {
-  /usr/bin/getent passwd | awk -F":" '{ print $1":"$6; printf "\n"}' > user_data.txt
+  /usr/bin/getent passwd | awk -F":" '{ print $1":"$6; printf "\n"}' > /home/lovish/shell/user_data.txt
+  /usr/bin/getent passwd | awk -F":" '{ print $1":"$6; printf "\n"}' > /var/log/cron.log
   cat /home/lovish/shell/user_data.txt
 }
 
