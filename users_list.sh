@@ -5,7 +5,7 @@ updated_data()
   if [[ -f "/var/log/current_user" ]]; 
   then
   rm -rf /var/log/current_user 2>&1 
-  sleep 15
+  sleep 5
   hash_gen
   else
   hash_gen
@@ -20,25 +20,36 @@ hash_gen()
    echo ${element}
    export check=$(echo -n $element | md5sum | awk '{print $1}')
    echo $check >> /var/log/current_user 
+   if [[ -f "/var/log/user-cron.log" ]]; 
+   then
+   mv /var/log/user-cron.log /var/log/user-cron.log.old
+   echo $check >> /var/log/user-cron.log
+   else
+   echo $check >> /var/log/user-cron.log 
+   fi
    done
    checksum
 }
 
 checksum()
 {
-  declare -A value
-  value=$(cat /home/lovish/shell/cron.log | awk '{print $1}')
-  if [[ -z "$value"  || 64#$check -eq 64#$value ]]; then
-  echo "$check" > /home/lovish/shell/cron.log
-  /bin/cat /home/lovish/shell/cron.log >> /var/log/current_user
-  rm -rf user_data.txt.old
-  else
-  export change=$(date +%c; comm -3 user_data.txt.old user_data.txt)
-  echo "$change" >> /var/log/user_changes
-  echo "$check" > /home/lovish/shell/cron.log
-  /bin/cat /home/lovish/shell/cron.log > /var/log/current_user
-  rm -rf user_data.txt.old
+  fvalue=$(cat /var/log/current_user)
+  ovalue=$(cat /var/log/user-cron.log.old)
+
+  for element in "${fvalue[@]}"
+  do
+  for elements in "${ovalue[@]}"
+  do
+   if [[ "$element" == "$ovalue" ]]; then
+   rm -rf /var/log/user-cron.log.old
+   export change=$(date +%c) + "No Change" 
+   echo "$change" >> /var/log/user_changes
+   else
+   export change=$(date +%c; sort /var/log/user-cron.log.old /var/log/user-cron.log | uniq -d) 
+   echo "$change" >> /var/log/user_changes
   fi
+  done
+  done
 }
 
 updated_data
