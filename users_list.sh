@@ -14,42 +14,34 @@ updated_data()
 
 hash_gen()
 {
+  if [[ -f "/var/log/user-cron.log" ]]; 
+  then
+  mv /var/log/user-cron.log /var/log/user-cron.log.old
+  fi
   my_array=( $(bash /home/lovish/shell/user-data.sh) )
   for element in "${my_array[@]}"
   do
    echo ${element}
    export check=$(echo -n $element | md5sum | awk '{print $1}')
-   echo $check >> /var/log/current_user 
-   if [[ -f "/var/log/user-cron.log" ]]; 
-   then
-   mv /var/log/user-cron.log /var/log/user-cron.log.old
-   echo $check >> /var/log/user-cron.log
-   else
-   echo $check >> /var/log/user-cron.log 
-   fi
+   echo $check >> /var/log/current_user  
    done
+   cp /var/log/current_user /var/log/user-cron.log 
    checksum
 }
 
 checksum()
 {
-  fvalue=$(cat /var/log/current_user)
-  ovalue=$(cat /var/log/user-cron.log.old)
-
-  for element in "${fvalue[@]}"
-  do
-  for elements in "${ovalue[@]}"
-  do
-   if [[ "$element" == "$ovalue" ]]; then
-   rm -rf /var/log/user-cron.log.old
-   export change=$(date +%c) + "No Change" 
-   echo "$change" >> /var/log/user_changes
+  fvalue=$(cat /var/log/current_user | wc -l)
+  ovalue=$(cat /var/log/user-cron.log.old | wc -l)
+   if [[ $fvalue -eq $ovalue ]]; 
+   then
+   sleep 7
+   echo "No Changes, Exitting in 5 sec"
+   exit
    else
-   export change=$(date +%c; sort /var/log/user-cron.log.old /var/log/user-cron.log | uniq -d) 
+   export change=$(date +%c; sort /var/log/user-cron.log.old /var/log/current_user | uniq -d) 
    echo "$change" >> /var/log/user_changes
   fi
-  done
-  done
 }
 
 updated_data
