@@ -32,6 +32,9 @@
 	mkdir -p /usr/local/nodejs
 	mv node-v16.13.1-linux-x64/* /usr/local/nodejs
 	echo
+	apt install npm -y
+	apt install net-tools -y
+	echo
 	echo "Set Up Completed."
 	echo
 
@@ -81,6 +84,7 @@ if [[ -f main.js ]]; then
 	pm2 start ~/main.js
 	echo
 	echo
+	sleep 5
 	echo "Test Service will run for 1 Min on port 8080"
 	echo
 	pass=$(curl http://localhost:8080)
