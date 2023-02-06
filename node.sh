@@ -33,7 +33,7 @@
 	mv node-v16.13.1-linux-x64/* /usr/local/nodejs
 	echo
 
-	sleep 3
+	apt-get update
 	apt install npm -y
 	echo
 
