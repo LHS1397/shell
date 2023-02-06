@@ -32,7 +32,13 @@
 	mkdir -p /usr/local/nodejs
 	mv node-v16.13.1-linux-x64/* /usr/local/nodejs
 	echo
+
+	sleep 3
 	apt install npm -y
+	echo
+
+	sleep 3
+
 	apt install net-tools -y
 	echo
 	echo "Set Up Completed."
@@ -70,7 +76,7 @@
 	Validaging()
 	{
 		cd ~
-		sudo tee -a main.js > /dev/null <<EOT
+		tee main.js > /dev/null <<EOT
 #!/usr/local/nodejs nodejs
 var http = require('http');
 http.createServer(function (req, res) {
