@@ -105,7 +105,7 @@ if [[ -f main.js ]]; then
 	fi
 	echo
 	echo "Stopping the services in:"
-    i=60;while [ $i -gt 0 ];do if [ $i -gt 9 ];then printf "\b\b$i";else  printf "\b\b $i";fi;sleep 1;i=`expr $i - 1`;done
+    i=10;while [ $i -gt 0 ];do if [ $i -gt 9 ];then printf "\b\b$i";else  printf "\b\b $i";fi;sleep 1;i=`expr $i - 1`;done
 	pm2 stop main
 	pm2 delete main
 	echo
