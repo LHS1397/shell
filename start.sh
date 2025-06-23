@@ -79,9 +79,14 @@ run()
    git config --global user.name "$username"
    git config --global user.email "$email"
    sleep 1
-   if [[ $user == $username && $mail == $email ]]; then
-   echo "Done."
-   ./systools.sh
+   # verify that the values were correctly written to the git config
+   new_user=$(git config --global user.name)
+   new_mail=$(git config --global user.email)
+   if [[ "$new_user" == "$username" && "$new_mail" == "$email" ]]; then
+     echo "Done."
+     ./systools.sh
+   else
+     echo "Failed to update git configuration."
    fi
      ;;
      "Continue")
